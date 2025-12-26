@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
-import App from './app';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Products from './components/products/roducts';
+import Products from './components/products/products';
 import Cart from './components/cart/cart';
 
 const router = createBrowserRouter([
