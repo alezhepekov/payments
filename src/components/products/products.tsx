@@ -1,4 +1,7 @@
 import { useContainerWidth, ReactGridLayout } from 'react-grid-layout';
+import 'react-grid-layout/css/styles.css';
+import 'react-resizable/css/styles.css';
+import './products.css';
 
 function Products() {
   const { width, containerRef, mounted } = useContainerWidth();
@@ -17,9 +20,9 @@ function Products() {
           width={width}
         >
           {}
-          <div key="a">a</div>
-          <div key="b">b</div>
-          <div key="c">c</div>
+          <div key="a" className="product-card">a</div>
+          <div key="b" className="product-card">b</div>
+          <div key="c" className="product-card">c</div>
         </ReactGridLayout>
       )}
     </div>
