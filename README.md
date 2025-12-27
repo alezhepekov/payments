@@ -8,4 +8,4 @@ This project contains a UI interface for working with payments data.
 
 There is basic functionality for working with a product table and a shopping cart.
 
-Technologies: React, Redux, TypeScript.
+Technologies: React, Redux, TypeScript, Tailwind CSS.
