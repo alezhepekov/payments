@@ -1,10 +1,41 @@
 import { useContainerWidth, ReactGridLayout } from 'react-grid-layout';
+import { useQuery } from 'react-query';
+import { Product } from '../../interfaces/product';
+import config from '../../config.json';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
 import './products.css';
 
+const fetchProducts = async () => {
+  const res = await fetch(`${config.apiUrl}/products`);
+  if (!res.ok) {
+    throw new Error('Network response was not ok');
+  }
+  return res.json();
+};
+
 function Products() {
   const { width, containerRef, mounted } = useContainerWidth();
+
+  const { isLoading, isError, data, error } = useQuery({
+      queryKey: ['products'],
+      queryFn: fetchProducts,
+  });
+
+  if (isLoading) {
+    return (
+      <span>Loading...</span>
+    );
+  }
+
+  if (isError) {
+    return (
+      <span>Error: {(error as any).message}</span>
+    );
+  }
+
+  const products: Product[] = [...data.data];
+  console.log(products);
 
   const layout = [
     { i: 'i11', x: 0, y: 0, w: 3, h: 2, static: true },
