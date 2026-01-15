@@ -50,12 +50,12 @@ function Products() {
   });
 
   return (
-    <div style={{ display: 'flex', width: '100%', height: '100%' }}>
-      <div style={{ display: 'flex', width: '15%', height: '100%' }}>
+    <div className="main-container" style={{ display: 'flex' }}>
+      <div className="categories-container" style={{ display: 'flex' }}>
         Categories
       </div>
-      <div style={{ display: 'flex', width: '85%', height: '100%' }}>
-        <div ref={containerRef} style={{ width: '100%', height: '100%' }}>
+      <div className="products-container" style={{ display: 'flex' }}>
+        <div ref={containerRef} className="gl-container">
           {mounted && (
             <ReactGridLayout
               layout={layout}
