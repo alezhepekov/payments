@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import './index.css';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+import reportWebVitals from './reportWebVitals';
 import App from './App';
 import Products from './components/products/products';
 import Cart from './components/cart/cart';
-import reportWebVitals from './reportWebVitals';
+import './index.css';
 
 const router = createBrowserRouter([
   {
@@ -30,9 +32,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
+     <Provider store={store}>
+       <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
+     </Provider>
   </React.StrictMode>
 );
 

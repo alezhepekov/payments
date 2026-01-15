@@ -1,5 +1,7 @@
 import { useContainerWidth, ReactGridLayout } from 'react-grid-layout';
 import { useQuery } from 'react-query';
+import { useAppDispatch } from '../../redux/hooks';
+import { productsSetData } from '../../redux/reducers/products-slice';
 import { Product } from '../../interfaces/product';
 import config from '../../config.json';
 import ProductCard from '../product-card/product-card';
@@ -17,6 +19,7 @@ const fetchProducts = async () => {
 
 function Products() {
   const { width, containerRef, mounted } = useContainerWidth();
+  const dispatch = useAppDispatch()
 
   const { isLoading, isError, data, error } = useQuery({
       queryKey: ['products'],
@@ -36,6 +39,7 @@ function Products() {
   }
 
   const products: Product[] = [...data.data];
+  dispatch(productsSetData(products));
 
   let layout: any[] = [];
   let y: number = 0;
