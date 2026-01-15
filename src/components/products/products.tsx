@@ -50,7 +50,7 @@ function Products() {
   });
 
   return (
-    <div className="main-container" style={{ display: 'flex' }}>
+    <div className="main-container" style={{ display: 'flex', backgroundColor: 'rgb(239 237 245)' }}>
       <div className="categories-container" style={{ display: 'flex' }}>
         Categories
       </div>
@@ -61,7 +61,7 @@ function Products() {
               layout={layout}
               width={width}>
               {products.map((product: Product) => (
-                <div key={product.uuid} className="product-card-container">
+                <div key={product.uuid}>
                   <ProductCard product={product}></ProductCard>
                 </div>
               ))}
