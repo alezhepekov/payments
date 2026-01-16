@@ -50,11 +50,11 @@ function Products() {
   });
 
   return (
-    <div className="main-container" style={{ display: 'flex', backgroundColor: 'rgb(239 237 245)' }}>
-      <div className="categories-container" style={{ display: 'flex' }}>
+    <div className="main-container">
+      <div className="categories-container">
         Categories
       </div>
-      <div className="products-container" style={{ display: 'flex' }}>
+      <div className="products-container">
         <div ref={containerRef} className="gl-container">
           {mounted && (
             <ReactGridLayout

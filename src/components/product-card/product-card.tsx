@@ -2,28 +2,28 @@ import './product-card.css';
 
 function ProductCard(props: any) {
   return (
-    <div style={{ borderRadius: '20px', backgroundColor: 'white' }}>
-      <div style={{ display: 'flex', justifyContent: 'center', verticalAlign: 'middle' }}>
-        <img src={props?.product?.images[0]?.original_url} alt="Product" style={{  marginTop: '0', width: 'auto', height: '150px' }} />
+    <div className="product-card">
+      <div className="product-card-image-container">
+        <img src={props?.product?.images[0]?.original_url} alt="Product" className="product-card-image" />
       </div>
-      <div style={{ margin: '0 10px' }}>{props?.product?.name}</div>
-      <div style={{ display: 'flex' }}>
-        <div style={{ margin: '10px', width: '50%' }}>
+      <div className="product-card-name">{props?.product?.name}</div>
+      <div className="product-card-price-and-status-container">
+        <div className="product-card-price-container">
           <span>{props?.product?.offers[0]?.price}</span>
           <span> {props?.product?.offers[0]?.currency}</span>
           <span> / {props?.product?.offers[0]?.unit}</span>
         </div>
-        <div style={{ margin: '10px', width: '50%', color: 'green' }}>В наличии</div>
+        <div className="product-card-status-container">В наличии</div>
       </div>
-      <div style={{ display: 'flex', margin: '0 10px', border: '1px solid gray', borderRadius: '5px' }}>
-        <div style={{ display: 'flex', justifyContent: 'center', verticalAlign: 'middle', width: '20%', margin: '0' }}>-</div>
-        <div style={{ display: 'flex', justifyContent: 'center', verticalAlign: 'middle', width: '60%', margin: '0' }}>
+      <div className="product-card-quantity-container">
+        <div className="product-card-quantity-minus">-</div>
+        <div className="product-card-quantity">
           <span>{props?.product?.offers[0]?.quantity}</span>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'center', verticalAlign: 'middle', width: '20%', margin: '0' }}>+</div>
+        <div className="product-card-quantity-plus">+</div>
       </div>
-      <div style={{ display: 'flex', justifyContent: 'center', verticalAlign: 'middle' }}>
-        <button type="button" style={{ margin: '5px 10px', padding: '5px', borderRadius: '5px', color: 'white', backgroundColor: 'blue' }}>Добавить в корзину</button>
+      <div className="product-card-actions-container">
+        <button type="button" className="product-card-add-to-cart-button">Добавить в корзину</button>
       </div>
     </div>
   );
